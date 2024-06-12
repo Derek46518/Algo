@@ -1,3 +1,7 @@
+# 演算法分析機測
+# 學號: 11027113 / 11027126 / 11027229
+# 姓名: 呂季軒 / 鍾昱賢 / 卓榮暉
+# 中原大學資訊工程系 
 import cv2
 import numpy as np
 import heapq
@@ -13,7 +17,7 @@ def load_image(filepath):
 
 def save_image(image, filepath):
     cv2.imwrite(filepath, image)
-    print(f"Image saved to {filepath}")
+    # print(f"Image saved to {filepath}")
 
 def is_valid_move(image, x, y, dx, dy, size=20):
     new_x = x + dx
@@ -77,13 +81,13 @@ def main(input_image_path, output_image_path):
     end = (489, 489)
     path = dijkstra(image, start[0], start[1], end[0], end[1])
     if path:
-        print("Path found:", path)
+        # print("Path found:", path)
         draw_path(image, path)
         save_image(image, output_image_path)
     else:
         print("No path found")
 
-if __name__ == "__main__":
-    input_image_path = "maze4.bmp"
-    output_image_path = "output_image.png"
-    main(input_image_path, output_image_path)
+   
+input_image_path = input()
+output_image_path = input_image_path.split(".bmp")[0] + "sol.bmp"
+main(input_image_path, output_image_path)
